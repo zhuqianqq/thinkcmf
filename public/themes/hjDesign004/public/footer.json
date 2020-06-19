@@ -1,0 +1,41 @@
+{
+    "name": "底部全局配置",
+    "action": "public/Footer",
+    "description": "底部全局配置",
+    "is_public": "1",
+    "order": 6.0,
+    "more": {
+        "vars": {
+            "footer_desc": {
+                "title": "底部第一栏描述",
+                "value": "",
+                "type": "textarea",
+                "tip": ""
+            },
+            "footer_address": {
+                "title": "底部第一栏地址",
+                "value": "",
+                "type": "text",
+                "tip": ""
+            },
+            "footer_time": {
+                "title": "底部第一栏联系电话",
+                "value": "",
+                "type": "text",
+                "tip": ""
+            },
+            "footer_email": {
+                "title": "底部第一栏邮箱",
+                "value": "",
+                "type": "text",
+                "tip": ""
+            },
+            "footer_copyright":{
+                "title": "底部版权声明",
+                "value": "",
+                "type": "text",
+                "tip": ""
+            }
+        }
+    }
+}

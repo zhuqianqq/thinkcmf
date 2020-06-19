@@ -1,0 +1,404 @@
+{
+    "name": "首页",
+    "action": "portal/Index/index",
+    "description": "首页模板文件",
+    "order": 4.0,
+    "more": {
+        "vars": {
+            "main_nav_id": {
+                "title": "请选择主导航",
+                "name": "主导航id",
+                "value": "1",
+                "type": "text",
+                "tip": "",
+                "dataSource": {
+                    "api": "admin/Nav/index"
+                },
+                "rule": []
+            },
+            "main_slide": {
+                "title": "请选择主轮播",
+                "name": "主轮播id",
+                "value": "1",
+                "type": "text",
+                "tip": "",
+                "dataSource": {
+                    "api": "admin/Slide/index"
+                },
+                "rule": []
+            },
+            "carouse_btn": {
+                "title": "请输入轮播图按钮文字",
+                "name": "轮播图按钮文字",
+                "value": "立即咨询",
+                "type": "text",
+                "tip": ""
+            }
+        },
+        "widgets": {
+            "about": {
+                "title": "关于我们",
+                "display": "1",
+                "vars": {
+                    "company_image": {
+                        "title": "企业图片",
+                        "value": "",
+                        "type": "image",
+                        "placeholder": "请上传企业图片",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    },
+                    "company_video": {
+                        "title": "企业视频",
+                        "value": "",
+                        "type": "file",
+                        "placeholder": "请上传企业视频",
+                        "tip": ""
+                    },
+                    "company_title": {
+                        "title": "企业标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请填写企业标题",
+                        "tip": ""
+                    },
+                    "company_desc": {
+                        "title": "企业描述",
+                        "value": "",
+                        "type": "textarea",
+                        "placeholder": "请填写企业描述",
+                        "tip": ""
+                    },
+                    "company_features_left": {
+                        "title": "企业特色左侧列表",
+                        "value": [],
+                        "type": "array",
+                        "item": {
+                            "desc": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "text"
+                            }
+                        },
+                        "placeholder": "请填写企业特色",
+                        "tip": ""
+                    },
+                    "company_features_right": {
+                        "title": "企业特色右侧列表",
+                        "value": [],
+                        "type": "array",
+                        "item": {
+                            "desc": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "text"
+                            }
+                        },
+                        "placeholder": "请填写企业特色",
+                        "tip": ""
+                    },
+                    "company_bottom": {
+                        "title": "企业底部描述",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请填写底部描述",
+                        "tip": ""
+                    },
+                    "company_count": {
+                        "title": "企业数据",
+                        "value": [],
+                        "type": "array",
+                        "item": {
+                            "image": {
+                                "title": "图标",
+                                "value": "",
+                                "type": "image"
+                            },
+                            "desc": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "number": {
+                                "title": "数字",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "unit": {
+                                "title": "单位",
+                                "value": "",
+                                "type": "text"
+                            }
+                        },
+                        "placeholder": "请填写企业特色",
+                        "tip": ""
+                    },
+                    "company_count_background": {
+                        "title": "企业统计背景图片",
+                        "value": "",
+                        "type": "image",
+                        "placeholder": "请上传企业统计背景图片",
+                        "tip": "推荐尺寸：889*219"
+                    }
+                }
+            },
+            "team": {
+                "title": "团队介绍",
+                "display": "1",
+                "vars": {
+                    "title": {
+                        "title": "标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请输入标题",
+                        "tip": ""
+                    },
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": ""
+                    },
+                    "teams": {
+                        "title": "团队列表",
+                        "value": [],
+                        "type": "array",
+                        "item": {
+                            "image": {
+                                "title": "头像",
+                                "value": "",
+                                "type": "image"
+                            },
+                            "name": {
+                                "title": "姓名",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "title": {
+                                "title": "称号",
+                                "value": "",
+                                "type": "text"
+                            }
+                        },
+                        "placeholder": "请填写企业特色",
+                        "tip": ""
+                    }
+                }
+            },
+            "service": {
+                "title": "团队服务",
+                "display": "1",
+                "vars": {
+                    "title": {
+                        "title": "标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请输入标题",
+                        "tip": ""
+                    },
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": ""
+                    },
+                    "features": {
+                        "title": "服务特色",
+                        "value": [],
+                        "type": "array",
+                        "item": {
+                            "image": {
+                                "title": "图片",
+                                "value": "",
+                                "type": "image"
+                            },
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "desc": {
+                                "title": "描述",
+                                "value": "",
+                                "type": "text"
+                            }
+                        },
+                        "placeholder": "请选择服务特色",
+                        "tip": ""
+                    },
+                    "case_title": {
+                        "title": "案例标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请输入案例标题",
+                        "tip": ""
+                    },
+                    "case_desc": {
+                        "title": "案例描述",
+                        "value": "",
+                        "type": "textarea",
+                        "placeholder": "请输入案例描述",
+                        "tip": ""
+                    },
+                    "case_bg": {
+                        "title": "案例背景",
+                        "value": "",
+                        "type": "image",
+                        "placeholder": "请选择案例背景",
+                        "tip": ""
+                    },
+                    "case_features": {
+                        "title": "案例展示",
+                        "value": "",
+                        "type": "array",
+                        "item": {
+                            "icon": {
+                                "title": "展示小图标",
+                                "value": "",
+                                "type": "image",
+                                "tip": "推荐尺寸：30*30"
+                            },
+                            "title": {
+                                "title": "展示标题",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "thumbnail": {
+                                "title": "展示大图",
+                                "value": "",
+                                "type": "image"
+                            },
+                            "portal_title": {
+                                "title": "案例文章标题",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "portal_desc": {
+                                "title": "案例文章描述",
+                                "value": "",
+                                "type": "textarea",
+                                "tip": "可使用标签"
+                            }
+                        },
+                        "placeholder": "请选择案例特色",
+                        "tip": ""
+                    }
+                }
+            },
+            "feedback": {
+                "title": "客户反馈",
+                "display": "1",
+                "vars": {
+                    "bg": {
+                        "title": "反馈背景",
+                        "value": "",
+                        "type": "image",
+                        "placeholder": "请上传反馈背景",
+                        "tip": ""
+                    },
+                    "data": {
+                        "title": "客户反馈",
+                        "value": [],
+                        "type": "array",
+                        "item": {
+                            "avatar": {
+                                "title": "头像",
+                                "value": "",
+                                "type": "image"
+                            },
+                            "content": {
+                                "title": "内容",
+                                "value": "",
+                                "type": "textarea"
+                            },
+                            "name": {
+                                "title": "名称",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "job": {
+                                "title": "职位",
+                                "value": "",
+                                "type": "text"
+                            }
+                        },
+                        "placeholder": "请选择服务特色",
+                        "tip": ""
+                    }
+                }
+            },
+            "friends": {
+                "title": "合作伙伴",
+                "display": "1",
+                "vars": {
+                    "bgcolor": {
+                        "title": "背景颜色",
+                        "value": "#021b79",
+                        "type": "color",
+                        "placeholder": "请上传反馈背景",
+                        "tip": ""
+                    },
+                    "data": {
+                        "title": "合作伙伴",
+                        "value": [],
+                        "type": "array",
+                        "item": {
+                            "title": {
+                                "title": "标题",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "link": {
+                                "title": "链接",
+                                "value": "",
+                                "type": "text"
+                            },
+                            "image": {
+                                "title": "图片",
+                                "value": "",
+                                "type": "image"
+                            }
+                        },
+                        "placeholder": "请选择合作伙伴",
+                        "tip": ""
+                    }
+                }
+            },
+            "last_news": {
+                "title": "最新资讯",
+                "display": "1",
+                "vars": {
+                    "title": {
+                        "title": "标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请输入标题",
+                        "tip": ""
+                    },
+                    "sub_title": {
+                        "title": "副标题",
+                        "value": "",
+                        "type": "text",
+                        "placeholder": "请输入副标题",
+                        "tip": ""
+                    },
+                    "last_news_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/Category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": ""  
+                    }
+                }
+            }
+        }
+    }
+}

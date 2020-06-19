@@ -1,0 +1,123 @@
+    <!-- Slider Section start -->
+
+    
+    <php>
+        $main_slide_id=empty($theme_vars['main_slide'])?1:$theme_vars['main_slide'];
+    </php>
+
+    <div id="rs-slider" class="rs-slider home-slider">
+      <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="0" data-autoplay="true"
+          data-autoplay-timeout="7000" data-smart-speed="800" data-dots="false" data-nav="false"
+          data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="false"
+          data-mobile-device-dots="false" data-ipad-device="1" data-ipad-device-nav="false"
+          data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="false"
+          data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false" data-md-device-dots="false">
+
+          <slides id="$main_slide_id">
+
+            <php>
+
+                if($key == 0)
+                {
+                    $active = 'active';
+                }
+                else{
+                    $active = 0;
+                }
+
+            </php> 
+
+            <div class="item {$active}">
+                <div style="background:url({:cmf_get_image_url($vo.image)})" class="single-slide">
+                    <div class="container">
+                        <div class="content-part">
+                            <div class="tags-part">
+                                <div class="title-part">
+                                    <h3>{$vo.title|default=''}</h3>
+                                    <h1>{$vo.description | default = ''}</h1>
+                                </div>
+                                <div class="desc-part">
+                                    {$vo.content | default = ''}
+                                </div>
+                            </div>
+                            <div class="btn-part">
+                                <a class="readon transparent" target="$vo.target|default=''}" href="{$vo.url|default=''}">
+                                    {$theme_vars.carouse_btn | default=''}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img-part hidden-md">
+                            
+                            <php>
+                                $vo['more'] = json_decode($vo['more'],true);
+
+                                $vo['more']['thumbnail'] = empty($vo['more']['thumbnail']) ? '' : cmf_get_image_url($vo['more']['thumbnail']);
+
+                            </php>
+
+                            <img src="{$vo['more']['thumbnail']}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </slides>
+
+        <noslides id="$top_slide_id">
+
+            <div class="item active">
+                <div class="single-slide">
+                    <div class="container">
+                        <div class="content-part">
+                            <div class="tags-part">
+                                <div class="title-part">
+                                    <h3>Award Winning</h3>
+                                    <h1>Best medical center</h1>
+                                </div>
+                                <div class="desc-part">
+                                    We are best leading medical serviecs provider of your city.
+                                    <br>
+                                    We alawys ensures patients satisfactions.
+                                </div>
+                            </div>
+                            <div class="btn-part">
+                                <a class="readon transparent" href="#">Appointment</a>
+                            </div>
+                        </div>
+                        <div class="img-part hidden-md">
+                            <img src="__TMPL__/public/assets/images/slider/sl1-layer-1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="single-slide">
+                    <div class="container">
+                        <div class="content-part">
+                            <div class="tags-part">
+                                <div class="title-part">
+                                    <h3>Award Winning</h3>
+                                    <h1>Best medical center</h1>
+                                </div>
+                                <div class="desc-part">
+                                    We are best leading medical serviecs provider of your city.
+                                    <br>
+                                    We alawys ensures patients satisfactions.
+                                </div>
+                            </div>
+                            <div class="btn-part">
+                                <a class="readon transparent" href="#">Appointment</a>
+                            </div>
+                        </div>
+                        <div class="img-part hidden-md">
+                            <img src="__TMPL__/public/assets/images/slider/sl1-layer-2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </noslides>
+
+      </div>
+  </div>
+  <!-- Slider Section End -->

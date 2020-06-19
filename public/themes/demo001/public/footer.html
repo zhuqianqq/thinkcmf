@@ -1,0 +1,52 @@
+<!-- Footer ================================================== -->
+<div id="footer" class="footer-links">
+	<hook name="footer_start" />
+	<div class="container">
+		<div class="col-md-2 visible-md-block visible-lg-block">
+			<img src="{:cmf_get_asset_url($theme_vars.footer_logo)}" alt="{$theme_vars.company_name}" title="{$theme_vars.company_name}">
+		</div>
+		<div class="col-md-8">
+			<h2>{$theme_vars.company_name}</h2>
+			<ul>
+				<foreach name="theme_vars.contact_us" item="vo">
+					<li>
+						<i class="fa fa-{$vo.icon}"></i> {$vo.title} {$vo.content}
+					</li>
+				</foreach>
+			</ul>
+		</div>
+		<div class="col-md-2 text-center">
+			<hr class="visible-xs-block" />
+			<img src="{:cmf_get_asset_url($theme_vars.company_QRcode)}" alt="二维码" title="扫一扫">
+		</div>
+	</div>
+	<div class="container">
+		<hr />
+		<div class="links">
+			友情链接：
+			<links>
+				<a href="{$vo.url|default=''}" target="{$vo.target|default=''}">{$vo.name|default=''}</a>&nbsp;
+			</links>
+		</div>
+		<p>
+			<notempty name="site_info.site_icp">
+				<a href="http://www.miitbeian.gov.cn/" target="_blank">{$site_info.site_icp}</a>
+				<else/>
+			</notempty>
+			<notempty name="site_info.site_gwa">
+				<img src="__TMPL__/public/assets/images/ghs.png">
+				<a href="http://beian.gov.cn/" target="_blank">{$site_info.site_gwa}</a>
+				<else/>
+			</notempty>
+		</p>
+	</div>
+	<div class="footer-copyright">
+		<div class="container">
+		<span class="col-md-6">&copy;2001-{$thisyear=date('Y'); } {$theme_vars.company_name} All rights reserved. </span>
+		<span class="col-md-6">技术支持：<a href="https://www.softlu.com" target="_blank" style="color:#ffffff">鲁软科技</a></span>
+		</div>
+	</div>
+</div>
+<div id="backtotop">
+	<i class="fa fa-arrow-circle-up"></i>
+</div>

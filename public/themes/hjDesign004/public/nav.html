@@ -1,0 +1,61 @@
+    <!--Full width header Start-->
+    <div id="index" class="full-width-header">
+      <!--Header Start-->
+      <header id="rs-header" class="rs-header homestyle">
+
+          <!-- Menu Start -->
+          <div class="menu-area menu-sticky">
+              <div class="container">
+                  <div class="row rs-vertical-middle">
+                      <div class="col-lg-3 col-12">
+                          <div class="logo-area">
+                              <empty name="$theme_vars['logo']">
+                                <a href="__ROOT__/"><img src="__TMPL__/public/assets/images/logo2.png" alt="logo"></a>
+                                <else/>
+                                <a href="__ROOT__/"><img src="{:cmf_get_image_url($theme_vars['logo'])}" alt="logo"></a>
+                              </empty>
+                          </div>
+                      </div>
+                      <div class="col-lg-9 col-12">
+                          <div class="main-menu">
+                              <div class="mobile-menu">
+                                  <a class="rs-menu-toggle"><i class="fa fa-bars"></i></a>
+                              </div>
+                              <nav class="rs-menu left-align-menu">
+                                  <ul id="onepage-menu" class="nav-menu op-light">
+
+                                    <php>
+                                        $main_nav_id = empty($theme_vars['main_nav_id']) ? 1 :  $theme_vars['main_nav_id'];
+                                    </php>
+
+                                    <navigation nav-id="$main_nav_id" root="">
+                                        <navigationMenu root="li">
+                                            <a href="{$menu.href|default=''}">{$menu.name|default=''}</a>
+                                        </navigationMenu>
+                                    </navigation>
+
+                                  </ul> <!-- //.nav-menu -->
+                              </nav>
+                              <div class="expand-btn">
+                                  <ul>
+                                     <!--
+                                      <li>
+                                          <a class="hidden-xs rs-search" data-target=".search-modal"
+                                              data-toggle="modal" href="#">
+                                              <i class="flaticon-search"></i>
+                                          </a>
+                                      </li>
+                                    -->
+                                      
+                                  </ul>
+                              </div>
+                          </div> <!-- //.main-menu -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Menu End -->
+      </header>
+      <!--Header End-->
+  </div>
+  <!--Full width header End-->

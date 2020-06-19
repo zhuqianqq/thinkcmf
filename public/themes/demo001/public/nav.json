@@ -1,0 +1,43 @@
+{
+    "name": "导航条",
+    "action": "public/Nav",
+    "description": "导航条模板文件",
+    "is_public": "1",
+    "order": 1.0,
+    "more": {
+        "vars": {
+            "company_name": {
+                "title": "公司名称",
+                "name": "company_name",
+                "value": "首页",
+                "type": "text",
+                "tip": "",
+                "rule": []
+            },
+            "company_logo": {
+                "title": "公司LOGO电脑版",
+                "name": "company_logo",
+                "value": "",
+                "type": "image",
+                "tip": "参考尺寸：400×55 px",
+                "rule": []
+            },
+            "company_logo_m": {
+                "title": "公司LOGO移动版",
+                "name": "company_logo_m",
+                "value": "",
+                "type": "image",
+                "tip": "参考尺寸：120×50 px",
+                "rule": []
+            },
+            "company_phone": {
+                "title": "联系电话",
+                "name": "company_phone",
+                "value": "15888888888",
+                "type": "text",
+                "tip": "",
+                "rule": []
+            }
+        }
+    }
+}

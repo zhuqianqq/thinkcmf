@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+	<title>{$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}" />
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+	<include file="public@head" />
+	<style type="text/css">
+		p{
+			margin: 0;
+		}
+		
+	</style>
+</head>
+
+<body>
+
+	<!-- Preloader start here -->
+	<div id="medvill-load">
+		<div class="medvill-loader la-2x">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!--Preloader end here -->
+
+	<!--rs-expertise-part end-->
+
+	<widget name="feedback">
+		<!--rs-happy-patients-part2 start-->
+		<php>
+
+			$bg = empty($widget['vars']['bg']) ? '' : $widget['vars']['bg'];
+			$bg = cmf_get_image_url($bg);
+				
+		</php>
+		<div class="feedImg" style="position: relative;">
+			<img src="{$bg}" width="100%" >
+			<img src="{:cmf_get_image_url($theme_vars['logo'])}" style="position: absolute;left: 20px;top: 20px;width: 50px;height: 50px;">
+			<div style="position: absolute;left: 78px;top: 28px;color:white;font-size: 26px;font-style:oblique;font-weight: 300;">
+				{$theme_vars['logo_name'] | default='' }
+			</div>
+		</div>
+		<!--rs-happy-patients-part2 end-->
+	</widget>
+
+	<php>
+		$widget["vars"]["last_news_category_id"] =
+		empty($widget["vars"]["last_news_category_id"])?1:$widget["vars"]["last_news_category_id"];
+		$last_news_limit=6;
+	</php>
+
+	<div class="content" style="background-color: #F9F9F9;width: 100%;display: flex;justify-content:center;">
+		<div style="width: 1080px;margin: 0 auto;margin-top: 30px;margin-bottom: 30px;display: flex;justify-content: space-between;flex-wrap: wrap;">
+
+			<portal:articles limit="$last_news_limit" order="post.published_time DESC"
+						categoryIds="$widget.vars.last_news_category_id">
+			<php>
+				//var_dump($vo->toArray());
+			
+				
+			</php>
+
+			<div style="width:320px;background:rgba(255,255,255);display: flex;flex-direction: column;justify-content:center;padding: 15px;text-align: center;margin-bottom: 35px;">
+				<div>
+					
+						<img src="{:cmf_get_image_url($vo->thumbnail)}" style="background-color: #ccc;width: 80px;height: 80px;">
+					
+				</div>
+				<div style="font-size: 12px;font-weight: bold;color: #333333">{$vo.post_title | default=''}</div>
+				<div style="font-size: 12px;color: #666666; overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; -webkit-box-orient: vertical;width: 200px;margin: 0 auto; ">
+					{$vo.post_excerpt | default=''}
+				</div>
+				<div style="width:55px;height:22px;background:rgba(187,187,187,0);border:1px solid rgba(43,136,241,1);border-radius:5px;line-height: 22px;text-align: center;color: #2B88F1;font-size: 12px;margin-left: 115px;margin-top: 15px">
+					<a href="{:url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">查看详情</a>
+				</div>
+			</div>
+
+			</portal:articles>
+
+			
+		</div>
+	</div>
+	<!--rs-latest-part-part part2 end-->
+	</widget>
+
+	
+	<include file="public@footer"/>
+	<include file="public@scripts"/>
+</body>
+
+</html>

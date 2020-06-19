@@ -1,0 +1,10 @@
+{
+    "name": "右边栏",
+    "action": "portal/right_side",
+    "description": "右边栏模板文件",
+    "is_public": "1",
+    "order": 3.0,
+    "more": {
+        
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "导航全局配置",
+    "action": "public/Nav",
+    "description": "导航全局配置",
+    "is_public": "1",
+    "order": 2.0,
+    "more": {
+        "vars": {
+            "logo": {
+                "title": "logo",
+                "value": "",
+                "type": "image",
+                "tip": "推荐尺寸：620*95"
+            },
+            "logo_name": {
+                "title": "logo名称",
+                "value": "",
+                "type": "text"
+            }
+        }
+    }
+}

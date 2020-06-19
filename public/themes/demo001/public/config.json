@@ -1,0 +1,78 @@
+{
+	"name": "模板全局配置",
+	"action": "public/Config",
+	"description": "模板全局配置文件",
+	"is_public": "1",
+	"order": 0.0,
+	"more": {
+		"vars": {
+			"enable_mobile": {
+				"title": "手机注册",
+				"value": "ThinkCMF",
+				"type": "select",
+				"value": 1,
+				"options": {
+					"1": "开启",
+					"0": "关闭"
+				},
+				"tip": ""
+			},
+			"contact_us": {
+				"title": "底部联系信息",
+				"value": [
+					{
+						"title": "销售经理：",
+						"icon": "user",
+						"content": "马士奎"
+					}, {
+						"title": "联系电话：",
+						"icon": "phone",
+						"content": "13583977017"
+					}, {
+						"title": "联系地址：",
+						"icon": "map-marker",
+						"content": "山东省临沂市郯城县新村银杏产业开发区银杏村"
+					}
+				],
+				"type": "array",
+				"item": {
+					"title": {
+						"title": "标题",
+						"value": "",
+						"type": "text",
+						"rule": {
+							"require": true
+						}
+					},
+					"icon": {
+						"title": "图标",
+						"value": "",
+						"type": "text"
+					},
+					"content": {
+						"title": "内容",
+						"value": "",
+						"type": "text"
+					}
+				},
+				"tip": ""
+			},
+			"footer_logo": {
+                "title": "底部LOGO",
+                "name": "company_logo",
+                "value": "",
+                "type": "image",
+                "tip": "参考尺寸：100×100 px",
+                "rule": []
+            },
+            "company_QRcode": {
+                "title": "公司二维码",
+                "name": "company_QRcode",
+                "value": "",
+                "type": "image",
+                "tip": "参考尺寸：100×100 px",
+                "rule": []
+            }
+		}
+	}
+}

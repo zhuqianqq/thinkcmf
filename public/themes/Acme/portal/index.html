@@ -1,0 +1,199 @@
+<extend name="public@base"/>
+
+<block name="head">
+    <title>首页 {$site_info.site_name|default=''}</title>
+    <link rel="stylesheet" href="__TMPL__/public/assets/owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" href="__TMPL__/public/assets/owlcarousel/owl.theme.css">
+    <link href="__TMPL__/public/assets/css/superfish.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/component.css">
+    <link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/parallax-slider/parallax-slider.css"/>
+    <script type="text/javascript" src="__TMPL__/public/assets/js/parallax-slider/modernizr.custom.28468.js"></script>
+</block>
+
+<block name="body">
+    <!-- 首页幻灯片 -->
+    <div id="da-slider" class="da-slider">
+        <slides id="$theme_vars['top_slide']">
+            <div class="da-slide">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <php>
+                                $slide_title = explode('|', $vo['description']);
+                                $title_count = count($slide_title);
+                                $slide_des = explode('|', $vo['content']);
+                                $des_count = count($slide_des);
+                            </php>
+                            <h2>
+                                <volist name="slide_title" id="v1">
+                                    <i>{$v1}</i>
+                                    <if condition="$i lt $title_count"><br/></if>
+                                </volist>
+                            </h2>
+                            <p>
+                                <volist name="slide_des" id="v2">
+                                    <i>{$v2}</i>
+                                    <if condition="$i lt $des_count"><br/></if>
+                                </volist>
+                            </p>
+                            <a href="{$vo.url}" class="btn btn-info btn-lg da-link">了解详情</a>
+                            <div class="da-img">
+                                <img src="{$vo.image|cmf_get_image_url}" alt="{$vo.title}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slides>
+        <nav class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>
+        </nav>
+    </div>
+
+    <!--第一版块-->
+    <widget name="first_section">
+        <div class="container">
+            <div class="row mar-b-50">
+                <div class="col-md-12">
+                    <!--版块内容-->
+                    <empty name="$widget.vars.category_id">
+                        <h4>没有设定版块内容，请在后台设置</h4>
+                        <else/>
+                        <!--版块标题-->
+                        <div class="text-center feature-head wow fadeInDown">
+                            <portal:category id="$widget.vars.category_id"  item="category_data">
+                                <h1 class="">{$category_data.name}</h1>
+                            </portal:category>
+                        </div>
+                        <div class="feature-box">
+                            <portal:articles limit="3" order="post.published_time DESC" categoryIds="$widget.vars.category_id">
+                                <div class="col-md-4 col-sm-4 text-center wow fadeInUp">
+                                    <div class="feature-box-heading">
+                                        <em>
+                                            <a href="{:cmf_url('portal/Article/index',['id'=>$vo['id']])}">
+                                               <img src="{$vo.thumbnail|default=$vo.more.thumbnail|cmf_get_image_url}" width="100" height="100">
+                                            </a>
+                                        </em>
+                                        <h4><b>{$vo.post_title}</b></h4>
+                                    </div>
+                                    <p>{$vo.post_excerpt}</p>
+                                </div>
+                            </portal:articles>
+                        </div>
+                    </empty>
+                </div>
+            </div>
+        </div>
+    </widget>
+
+    <!--第二版块-->
+    <widget name="second_section">
+        <php>
+            $myPage=\app\portal\service\ApiService::page($widget['vars']['page_id']);
+        </php>
+        <div class="property gray-bg">
+            <div class="container">
+                <empty name="myPage">
+                    没有设置信息来源，请在后台设置。
+                    <else/>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 text-center wow fadeInLeft">
+                            <img src="{$myPage.more.thumbnail|cmf_get_image_url}">
+                        </div>
+                        <div class="col-lg-6 col-sm-6 wow fadeInRight">
+                            <h1>{$myPage.post_title}</h1>
+                            <hr>
+                            {$myPage.post_content}
+                            <hr>
+                            <if condition="$widget.vars.btn_display eq 1">
+                                <a href="{$widget.vars.btn_link}" class="btn btn-purchase">
+                                    {$widget.vars.btn_title}
+                                </a>
+                            </if>
+                        </div>
+                    </div>
+                </empty>
+            </div>
+        </div>
+    </widget>
+
+    <!--第六版块-->
+    <widget name="sixth_section">
+        <div class="container">
+            <div class="row mar-b-50 our-clients">
+                <div class="col-md-3">
+                    <h2>{$widget.vars.section_name}</h2>
+                    <p>{$widget.vars.excerpt}</p>
+                </div>
+                <div class="col-md-9">
+                    <div class="outside">
+                        <p><span id="slider-prev"></span> &emsp;|&emsp; <span id="slider-next"></span></p>
+                    </div>
+                    <ul class="bxslider1">
+                        <links>
+                            <li>
+                                <a href="{$vo.url}">
+                                    <img style="width: 100px" src="{$vo.image|default=''|cmf_get_image_url}"/>
+                                </a>
+                                <span>{$vo.description|default=''}</span>
+                            </li>
+                        </links>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </widget>
+</block>
+
+<block name="scripts">
+    <script type="text/javascript" src="__TMPL__/public/assets/js/jquery.parallax-1.1.3.js"></script>
+    <script src="__TMPL__/public/assets/owlcarousel/owl.carousel.js"></script>
+    <script src="__TMPL__/public/assets/js/superfish.js"></script>
+    <script type="text/javascript" src="__TMPL__/public/assets/js/parallax-slider/jquery.cslider.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#da-slider').cslider({
+                autoplay: true,
+                bgincrement: 100
+            });
+        });
+
+        jQuery(document).ready(function () {
+            $('.bxslider1').bxSlider({
+                minSlides: 5,
+                maxSlides: 6,
+                slideWidth: 360,
+                slideMargin: 2,
+                moveSlides: 1,
+                responsive: true,
+                nextSelector: '#slider-next',
+                prevSelector: '#slider-prev',
+                nextText: '下一个 →',
+                prevText: '← 上一个'
+            });
+        });
+
+        $('a.info').tooltip();
+
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({items: 4});
+        });
+
+        jQuery(document).ready(function () {
+            jQuery('ul.superfish').superfish();
+        });
+
+        new WOW().init();
+    </script>
+</block>

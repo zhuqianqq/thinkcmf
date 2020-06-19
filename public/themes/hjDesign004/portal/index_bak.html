@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+	<title>{$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}" />
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+	<include file="public@head" />
+
+</head>
+
+<body>
+
+	<!-- Preloader start here -->
+	<div id="medvill-load">
+		<div class="medvill-loader la-2x">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!--Preloader end here -->
+
+	<include file="public@nav" />
+
+	<include file="public@carouse" />
+
+	<!--rs-expertise-part start-->
+	<widget name="about">
+		<div id="about" class="rs-expertise-part part2 pt-120 pb-133 md-pb-80 md-pt-67 md-pt-76">
+			<div class="container">
+				<div class="row rs-vertical-middle">
+					<div class="col-lg-6 col-12 pr-25 md-col-gap md-mb-30">
+						<div class="rs-best-medical-part">
+							<div class="img-part">
+
+								<empty name='$widget.vars.company_image'>
+									<img src="__TMPL__/public/assets/images/about/blue-bg2.png" alt="">
+									<else />
+									<img src="{:cmf_get_image_url($widget.vars.company_image)}" alt="">
+								</empty>
+
+								<notempty name='$widget.vars.company_video'>
+									<div class="play-btn">
+										<a class="pulse-btn popup-videos"
+											href="{:cmf_get_file_download_url($widget.vars.company_video)}"><i
+												class="fa fa-play"></i></a>
+									</div>
+								</notempty>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-12 pl-40 md-col-gap">
+						<div class="rs-services-part">
+							<div class="sec-title mb-20">
+
+								<h2 class="title pb-20">{$widget.vars.company_title | default = "请联系管理员设置标题"}</h2>
+								<div class="desc mb-20">
+									{$widget.vars.company_desc | default = "请联系管理员设置描述"}
+								</div>
+
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="stylelisting">
+											<notempty name="$widget.vars.company_features_left">
+												<ul class="chevron-right-icon">
+													<foreach name="$widget.vars.company_features_left" item="vo">
+														<li>
+															{$vo.desc | default=''}
+														</li>
+													</foreach>
+												</ul>
+											</notempty>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="stylelisting">
+											<notempty name="$widget.vars.company_features_right">
+												<ul class="chevron-right-icon">
+													<foreach name="$widget.vars.company_features_right" item="vo">
+														<li>
+															{$vo.desc | default=''}
+														</li>
+													</foreach>
+												</ul>
+											</notempty>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="alignnone">
+								<p class="author mb-20"><b>{$widget.vars.company_bottom | default = "请联系管理员设置底部描述"}</b>
+								</p>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--rs-counter-part start-->
+		<notempty name="$widget.vars.company_count">
+
+			<php>
+
+				$bg = empty($widget['vars']['company_count_background']) ? '' :
+				cmf_get_image_url($widget['vars']['company_count_background']);
+
+			</php>
+
+			<div style="background: url({$bg});" class="rs-counter-part bg7 pt-96 pb-102 md-pt-80 md-pb-80">
+				<div class="container">
+					<div class="row">
+						<foreach name="$widget.vars.company_count" item="vo">
+							<div class="col-lg-3 col-md-6 col-sm-6 md-mb-30 xs-mb-30">
+								<div class="rs-counter-list text-center">
+									<div class="icon-part">
+										<img src="{:cmf_get_image_url($vo.image)}" alt="">
+									</div>
+									<div class="counter-top">
+										<div class="counter-count">
+											<span class="counter-number">{$vo.number | default=''}</span><span
+												class="post-tag">{$vo.unit | default=''}</span>
+										</div>
+										<h3 class="counter-text white-color">{$vo.desc | default=''}</h3>
+									</div>
+								</div>
+							</div>
+						</foreach>
+					</div>
+				</div>
+			</div>
+		</notempty>
+		<!--rs-counter-part end-->
+	</widget>
+	<!--rs-expertise-part end-->
+
+	<!--rs-meet-with-doctor-part start-->
+	<widget name="team">
+		<div id="team" class="rs-meet-with-doctor-part sec-bg pt-122 pb-100 md-pt-72 md-pb-50">
+			<div class="container">
+				<div class="sec-title text-center mb-47">
+					<h2 class="title pb-13">{$widget.vars.title | default='请联系管理员设置团队标题'}</h2>
+					<div class="desc">{$widget.vars.sub_title | default='请联系管理员设置团队副标题'}</div>
+				</div>
+				<notempty name="$widget.vars.teams">
+					<div class="rs-carousel owl-carousel" data-loop="true" data-items="4" data-margin="30"
+						data-autoplay="true" data-autoplay-timeout="7000" data-smart-speed="800" data-dots="false"
+						data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
+						data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
+						data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
+						data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="4"
+						data-md-device-nav="false" data-md-device-dots="false">
+						<foreach name="$widget.vars.teams" item="vo">
+							<div class="item">
+								<div class="team-inner">
+									<div class="img-part">
+										<empty name="$vo.image">
+											<img src="http://iph.href.lu/600x600" />
+											<else />
+											<img src="{:cmf_get_image_url($vo.image)}" alt="">
+										</empty>
+									</div>
+									<div class="team-content">
+										<h3 class="team-name"><a href="#">{$vo.name | default=''}</a></h3>
+										<span class="team-title">{$vo.title | default=''}</span>
+									</div>
+								</div>
+							</div>
+						</foreach>
+					</div>
+				</notempty>
+			</div>
+		</div>
+	</widget>
+	<!--rs-meet-with-doctor-part end-->
+
+	<!--rs-quality-services-part start-->
+	<widget name="service">
+		<div id="service" class="rs-quality-services-part bg8 pt-122 pb-130 md-pt-72 md-pb-80">
+			<div class="container">
+				<div class="sec-title text-center pb-90">
+					<h2 class="title pb-15">{$widget.vars.title | default='请联系管理员设置服务标题'}</h2>
+					<div class="desc">
+						{$widget.vars.sub_title | default='请联系管理员设置服务副标题'}
+					</div>
+				</div>
+
+				<notempty name="$widget.vars.features">
+					<div class="row">
+						<foreach name="$widget.vars.features" item="vo">
+							<div class="col-lg-4 mb-78 col-md-6">
+								<div class="item-services">
+									<div class="item">
+										<div class="icon-part">
+											<empty name="$vo.image">
+												<img src="http://iph.href.lu/100x100" />
+												<else />
+												<img src="{:cmf_get_image_url($vo.image)}" alt="">
+											</empty>
+										</div>
+										<div class="content-part">
+											<h3 class="title"><a href="#">{$vo.title | default=''}</a></h3>
+											<p class="desc-part">
+												{$vo.desc | default=''}
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</foreach>
+					</div>
+				</notempty>
+			</div>
+		</div>
+
+		<!--rs-quality-services-part end-->
+
+		<!-- Why Choose us Section start -->
+		<div id="case" class="rs-why-choose-us">
+
+			<php>
+				$bg = empty($widget['vars']['case_bg']) ? '' : $widget['vars']['case_bg'];
+
+				$bg = empty($bg) ? '' : "style='background:url(cmf_get_image_url($bg))'";
+			</php>
+
+			<div {$bg} class="why-choose-top bg1 pt-122 pb-220 md-pt-72">
+				<div class="container">
+					<div class="sec-title pb-17 md-pb-0">
+						<h2 class="title white-color uppercase pb-15">{$widget.vars.case_title | default='请联系管理员设置案例标题'}
+						</h2>
+						<div class="desc left-line white white-color">
+							{$widget.vars.case_desc | default='请联系管理员设置案例描述'}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="why-choose-bottom sec-bg">
+				<div class="container">
+					<div class="tab-area">
+						<ul class="nav nav-tabs">
+							<foreach name="$widget.vars.case_features" item="vo">
+								<if condition="$key < 5">
+									<li>
+										<a class="active tab-item" href="#tab{$key}" data-toggle="tab">
+											<div style="width: 30px;height:30px;margin: 0 auto;">
+												<empty name="$vo.icon">
+													<img style="width: 100%;height:100%" src="http://iph.href.lu/30x30"
+														alt="">
+													<else />
+													<img src="{:cmf_get_image_url($vo.icon)}" alt="">
+												</empty>
+											</div>
+											<p class="title">{$vo.title | default=''}</p>
+										</a>
+									</li>
+								</if>
+							</foreach>
+
+						</ul>
+
+						<div class="tab-content">
+							<foreach name="$widget.vars.case_features" item="vo">
+								<if condition="$key < 5">
+									<div class="tab-pane {$key == 0 ? 'active' : ''}" id="tab{$key}">
+										<div class="row rs-vertical-middle">
+											<div class="col-lg-6 md-mb-30">
+												<div class="img-part">
+													<empty name="$vo.thumbnail">
+														<img style="width: 100%;height:100%"
+															src="http://iph.href.lu/1200x807" alt="">
+														<else />
+														<img src="{:cmf_get_image_url($vo.thumbnail)}"
+															alt="{$vo.portal_title | default=''}">
+													</empty>
+												</div>
+											</div>
+											<div class="col-lg-6 pl-45 md-pl-15">
+												<div class="sec-title">
+													<h2 class="title-small capitalize">{$vo.portal_title | default=''}
+													</h2>
+													<div class="desc">
+														{$vo.portal_desc | default=''}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</if>
+							</foreach>
+						</div>
+					</div><!-- .tab-area -->
+				</div>
+			</div>
+		</div>
+		<!-- Why Choose us Section End -->
+
+	</widget>
+
+	<widget name="feedback">
+		<!--rs-happy-patients-part2 start-->
+		<php>
+			$bg = empty($widget['vars']['bg']) ? '' : $widget['vars']['bg'];
+
+			$bg = empty($bg) ? '' : "style='background:url(cmf_get_image_url($bg))'";
+		</php>
+		<div {$bg} id="feedback" class="rs-happy-patients-part style2 bg3 take-up pt-130  pb-180 md-pb-160 md-pt-80">
+			<div class="container">
+				<div class="rs-carousel owl-carousel white-dots dot-gap" data-loop="true" data-items="2"
+					data-margin="30" data-autoplay="true" data-autoplay-timeout="7000" data-smart-speed="800"
+					data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false"
+					data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false"
+					data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="false"
+					data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false"
+					data-md-device="2" data-md-device-nav="false" data-md-device-dots="true">
+					<foreach name="$widget.vars.data" item="vo">
+						<div class="item">
+							<div class="img-part">
+								<empty name="$vo.icon">
+									<img style="width: 100%;height:100%" src="http://iph.href.lu/80x80" alt="">
+									<else />
+									<img src="{:cmf_get_image_url($vo.avatar)}" alt="">
+								</empty>
+							</div>
+							<div class="content-part">
+								<div class="desc-part">
+									<p>{$vo.content | default=''}</p>
+								</div>
+								<div class="cl-author">
+									<ul>
+										<li class="name">{$vo.name | default=''}</li>
+										<li class="category">{$vo.job | default=''}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</foreach>
+				</div>
+			</div>
+		</div>
+		<!--rs-happy-patients-part2 end-->
+	</widget>
+
+
+	<!--rs-latest-part part2 start-->
+	<div id="friends" class="rs-latest-part pb-100 md-pb-50 mt-reverse">
+
+		<widget name="friends">
+			<!--rs-partner-part start-->
+			<div class="rs-partner-part mb-122 md-mb-72">
+				<div class="container">
+					<div class="images-part">
+						<div class="rs-carousel owl-carousel" data-loop="true" data-items="4" data-margin="30"
+							data-autoplay="true" data-autoplay-timeout="7000" data-smart-speed="800" data-dots="false"
+							data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
+							data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="3"
+							data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
+							data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="4"
+							data-md-device-nav="false" data-md-device-dots="false">
+							<foreach name="$widget.vars.data" item="vo">
+								<div class="item">
+									<div class="img-part">
+										<a href="{$vo.link}" target="_blank">
+											<empty name="$vo.image">
+												<img style="width: 100%;height:100%" src="http://iph.href.lu/80x80"
+													alt="">
+												<else />
+												<img src="{:cmf_get_image_url($vo.image)}" alt="">
+											</empty>
+										</a>
+									</div>
+								</div>
+							</foreach>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--rs-partner-part end-->
+		</widget>
+
+		<widget name="last_news">
+			<div id="blog" class="container">
+				<div class="sec-title pb-64 md-pb-37">
+					<h2 class="title uppercase pb-15">{$widget.vars.title | default='请联系管理员设置新闻标题'}</h2>
+					<div class="desc left-line secondary">
+						{$widget.vars.desc | default='请联系管理员设置新闻描述'}
+					</div>
+				</div>
+				<div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
+					data-autoplay="true" data-autoplay-timeout="7000" data-smart-speed="800" data-dots="false"
+					data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1"
+					data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
+					data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1"
+					data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="3"
+					data-md-device-nav="false" data-md-device-dots="false">
+
+					<php>
+						$widget["vars"]["last_news_category_id"] =
+						empty($widget["vars"]["last_news_category_id"])?1:$widget["vars"]["last_news_category_id"];
+						$last_news_limit=20;
+					</php>
+					<portal:articles limit="$last_news_limit" order="post.published_time DESC"
+						categoryIds="$widget.vars.last_news_category_id">
+
+						<php>
+							$category_name=\app\portal\service\ApiService::category($vo['category_id']);
+						</php>
+						<div class="item">
+							<div class="blog-item">
+								<div class="img-part">
+									<empty name="vo.more.thumbnail">
+										<img style="width: 100%;height:100%" src="http://iph.href.lu/1200x800"
+											alt="">
+										<else />
+										<img src="{:cmf_get_image_url($vo.more.thumbnail)}" alt="">
+									</empty>
+									<div class="category">
+										<span><a href="javascript:;">{$category_name['name'] | default=''}</a></span>
+									</div>
+								</div>
+								<div class="blog-full">
+									<div class="blog-meta">
+										<h3 class="title"><a
+												href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}">{$vo.post_title
+												| default=''}</a></h3>
+									</div>
+									<div class="blog-slider-meta">
+										<div class="blog-content mb-10">
+											<span class="post-date">
+												<i class="flaticon-clock"></i>
+												{:date('Y-m-d',$vo.published_time)}
+											</span>
+											<span class="post-author">
+												<i class="flaticon-user-1"></i>
+												{$vo.user.user_nickname | default=''}
+											</span>
+										</div>
+										<div class="blog-desc">
+											<p>
+												{$vo.post_excerpt | default = ''}
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</portal:articles>
+
+				</div>
+			</div>
+	</div>
+	<!--rs-latest-part-part part2 end-->
+	</widget>
+
+	<include file="public@footer"/>
+	<include file="public@scripts"/>
+</body>
+
+</html>
