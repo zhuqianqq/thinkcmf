@@ -1,4 +1,4 @@
-<?php /*a:9:{s:60:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/portal\list.html";i:1592539112;s:60:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\base.html";i:1523429066;s:60:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\head.html";i:1555462698;s:64:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\function.html";i:1523429823;s:62:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\header.html";i:1592472542;s:66:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\breadcrumb.html";i:1523429318;s:66:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\right_side.html";i:1523546715;s:62:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\footer.html";i:1592530948;s:63:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\scripts.html";i:1523698744;}*/ ?>
+<?php /*a:9:{s:60:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/portal\list.html";i:1592539112;s:60:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\base.html";i:1523429066;s:60:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\head.html";i:1555462698;s:64:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\function.html";i:1523429823;s:62:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\header.html";i:1592472542;s:66:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\breadcrumb.html";i:1523429318;s:66:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\right_side.html";i:1523546715;s:62:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\footer.html";i:1592547804;s:63:"D:\phpstudy_pro\WWW\wywl\public/themes/Acme/public\scripts.html";i:1523698744;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -503,9 +503,9 @@ if('ul'==''): ?>
                     <div class="text-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".7s">
                         <h1><?php echo $widget['vars']['title']; ?></h1>
                         <p><?php echo $widget['vars']['content']; ?></p>
-                        <?php if(!(empty($widget['vars']['image']) || (($widget['vars']['image'] instanceof \think\Collection || $widget['vars']['image'] instanceof \think\Paginator ) && $widget['vars']['image']->isEmpty()))): ?>
+                        <!-- <?php if(!(empty($widget['vars']['image']) || (($widget['vars']['image'] instanceof \think\Collection || $widget['vars']['image'] instanceof \think\Paginator ) && $widget['vars']['image']->isEmpty()))): ?>
                             <img src="<?php echo cmf_get_image_url($widget['vars']['image']); ?>" class="img-responsive">
-                        <?php endif; ?>
+                        <?php endif; ?> -->
                     </div>
                 </div>
             
